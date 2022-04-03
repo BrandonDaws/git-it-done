@@ -1,6 +1,6 @@
 
 var issuesContainerEl = document.querySelector("#issues-container");
-
+var limitWarningEl = document.querySelector("#limit-warning");
 
 
 
@@ -14,6 +14,11 @@ var getRepoIssues = function(repo){
         response.json().then(function(data){
             //pass response data to the dom function
             displayIssues(data);
+
+            //check if api has paginated issues( more issues than can appear on one page)
+            if(response.headers.get("link")){
+                console.log("repo has more than 30 pages");
+            }
         });
     }
     else{
@@ -55,4 +60,4 @@ var displayIssues = function(issues){
 }
 }
 
-getRepoIssues("BrandonDaws/portfolio");
+getRepoIssues("facebook/react");

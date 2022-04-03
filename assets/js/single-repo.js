@@ -22,7 +22,11 @@ var getRepoIssues = function(repo){
     });
 }
 var displayIssues = function(issues){
-    
+    if(issues.length === 0){
+        issuesContainerEl.textContent = "this Repo does not have any open issues";
+        return;
+    }
+
     for ( var i = 0; i < issues.length; i++) {
  //create a link element to take the user to the issues on github
  var issueEl = document.createElement("a")
@@ -51,4 +55,4 @@ var displayIssues = function(issues){
 }
 }
 
-getRepoIssues("BrandonDaws/git-it-done");
+getRepoIssues("BrandonDaws/portfolio");

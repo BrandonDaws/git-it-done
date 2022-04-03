@@ -34,6 +34,7 @@ repoContainerEl.textContent = "There are no Repositories to display at this time
 
     //LOOP OVER REPOS
     for (var i =0; i < repos.length; i++) {
+        
         //format repo name
         var repoName = repos[i].owner.login + "/" + repos[i].name;
 
